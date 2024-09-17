@@ -1,16 +1,17 @@
 const express = require('express')
+const myfortune = require('./libs/fortune')
 
 const app = express()
 
 const portnum = process.env.PORT || 3500
 
-const fortunes = [
-    'Seize the day',
-    'Do one thing well',
-    'Have faith',
-    'All will be well',
-    'Keep at it'
-]
+// const fortunes = [
+//     'Seize the day',
+//     'Do one thing well',
+//     'Have faith',
+//     'All will be well',
+//     'Keep at it'
+// ]
 
 
 var exphandlebars = require('express-handlebars')
@@ -24,7 +25,7 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', (req,res) => {
     res.type('text/html')
     //res.send("<h1>Home Sweet Home</h1>") 
-    const afortune = fortunes[Math.floor(Math.random()*fortunes.length)]    
+    const afortune = myfortune.getFortune()
     console.log(afortune)
     res.render('home',{fortune:afortune})
 })
