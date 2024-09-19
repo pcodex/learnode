@@ -16,6 +16,8 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/', myhandlers.home)
 
+app.get('/headers', myhandlers.headers)
+
 app.get('/about', myhandlers.about)
 
 app.use(myhandlers.notFound)

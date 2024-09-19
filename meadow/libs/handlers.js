@@ -8,6 +8,15 @@ exports.about = (req,res) => {
     res.render('about')
 }
 
+exports.headers = (req,res) => {
+
+         const hdrs = Object.entries(req.headers)
+                            .map(([key, value]) => `${key} : ${value}` )  
+                       res.send(hdrs.join('\n'))
+  }
+
+
+
 exports.notFound = (req,res) => {
     res.render('404')
 }
