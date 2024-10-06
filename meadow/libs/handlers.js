@@ -5,7 +5,15 @@ exports.home = (req,res) => {
 }
 
 exports.about = (req,res) => {
-    res.render('about')
+    const reqobj = {
+
+    aparams : req.params,
+    aurl : req.url,
+    ahostname : req.hostname,
+    apath : req.path,
+    aproto : req.protocol
+}
+    res.render('about',{reqobj})
 }
 
 exports.headers = (req,res) => {
