@@ -1,7 +1,11 @@
 const myfortune = require('./fortune')
 
+const authorname = {
+    name:'Prabhu\'s'
+}
 exports.home = (req,res) => {
-    res.render('home',{fortune:myfortune.getFortune()})
+    
+    res.render('home',{fortune:myfortune.getFortune(),authorname})
 }
 
 exports.about = (req,res) => {
@@ -11,9 +15,11 @@ exports.about = (req,res) => {
     aurl : req.url,
     ahostname : req.hostname,
     apath : req.path,
+    aroute : req.route,
+    aip : req.ip,
     aproto : req.protocol
 }
-    res.render('about',{reqobj})
+    res.render('about',{reqobj,authorname})
 }
 
 exports.headers = (req,res) => {
